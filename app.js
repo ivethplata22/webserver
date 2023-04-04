@@ -4,13 +4,14 @@ const port = 8080;
 
 app.set('view engine', 'hbs');
 
-// Servir contenido estatico
 app.use( express.static('public') );
 
-// Se puede renderizar con el mismo html
-// Sirve para reutilizar codigo de vistas facilmente
+// Mandamos como argumentos este objeto
 app.get('/', function (req,res) {
-    res.render('home');
+    res.render('home', {
+        nombre: 'Karen',
+        titulo: 'Curso de Node'
+    });
 });
 
 app.get('/generic', function (req,res) {
