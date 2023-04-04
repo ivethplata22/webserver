@@ -2,13 +2,15 @@ const express = require('express');
 const app = express();
 const port = 8080;
 
+app.set('view engine', 'hbs');
+
 // Servir contenido estatico
 app.use( express.static('public') );
 
-// Se puede crear contenido estatico para rutas en especifico
-
+// Se puede renderizar con el mismo html
+// Sirve para reutilizar codigo de vistas facilmente
 app.get('/', function (req,res) {
-    res.sendFile( __dirname + '/public/index.html');
+    res.render('home');
 });
 
 app.get('/generic', function (req,res) {
