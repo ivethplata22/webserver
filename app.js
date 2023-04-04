@@ -8,11 +8,15 @@ app.use( express.static('public') );
 // Se puede crear contenido estatico para rutas en especifico
 
 app.get('/', function (req,res) {
-    res.send('Hola Mundo');
+    res.sendFile( __dirname + '/public/index.html');
 });
 
-app.get('/home', function (req,res) {
-    res.send('Hola Mundo En Home');
+app.get('/generic', function (req,res) {
+    res.sendFile( __dirname + '/public/generic.html');
+});
+
+app.get('/elements', function (req,res) {
+    res.sendFile( __dirname + '/public/elements.html');
 });
 
 app.get('*', function (req,res) {
